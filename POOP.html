@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Basic HTML5/CSS3 Responsive Web Design</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
+    <style type="text/css">
+    </style>
+    <style>
+        *{
+            font-family : "Roboto";
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+<div id="wrapper">
+
+    <nav id="nav">
+        <a href="#nav" title="Show navigation">Show navigation</a>
+        <a href="#" title="Hide navigation">Hide navigation</a>
+        <ul>
+            <li class='active'><a href="index.php">Home</a></li>
+            <li><a href="#followers">Followers</a></li>
+            <li><a href="#following">Following</a></li>
+            <li><a href="#">LogOut</a></li>
+        </ul>
+        <div class="clearfix"></div>
+    </nav>
+
+    <section class="left-col">
+        <img src="Images/dash.png"/> <br/>DASHBOARD<br/>
+        <img src="Images/Clients.png"/> <br/>MY CLIENTS<br/>
+        <img src="Images/small58.png"/> <br/>CALENDER<br/>
+        <img src="Images/Search.png"/> <br/>BROWSE MARKET<br/>
+        <img src="Images/Message.png"/> <br/>MESSAGES<br/>
+        <img src="Images/add139.png"/> <br/>NEW<br/>
+
+    </section>
+
+    <aside class="sidebar">
+
+        <nav id="nav1">
+            <p align = "left" >Bob Burger's Portfolio</p>
+            <a href="#nav" title="Show navigation">Show navigation</a>
+            <a href="#" title="Hide navigation">Hide navigation</a>
+            <ul>
+                <li class='active'><a href="POOP.html">holdings</a></li>
+                <li><a href="#">stock watchlist</a></li>
+                <li><a href="#">account deposit</a></li>
+                <li><a href="#">personal details</a></li>
+                <li><a href="#">buy/sell shares</a></li>
+                <li><a href="#">meetings</a></li>
+            </ul>
+            <div class="clearfix"></div>
+        </nav>
+
+        <div id="stocks">
+            <a id="followers"><h3>THINGS</h3></a>
+
+        </div>
+
+    </aside>
+
+    <div class="clearfix">
+
+    </div>
+
+
+        <form action="viewFollowers.php" class="CSSlink" method="post	">
+            <p class="submit"><input type="submit" name="view" value="View Followers"></p>
+        </form>
+
+
+    <br/>
+    <footer>
+        Copy rights reserved
+    </footer></div>
+</body>
+</html>
