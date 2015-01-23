@@ -100,10 +100,15 @@ nav > ul > li:not( :last-child ) > a
 }
 .sidebar {
     background : #7388A7;
-    width : 82%;
+    width : 85%;
     float : right;
     margin-top : 2%;
-    border-radius : 10px;
+    border-radius :0px;
+}
+
+hr{
+    margin-top: 0em;
+    margin-bottom: 0em;
 }
 
 
