@@ -7,8 +7,8 @@ body {
     width: 100%;
     height: 100%;
     font-family: 'Raleway', sans-serif;
-    font-weight: 300;
-    background-color: #ffffff;
+    font-weight: 400;
+    background-color: #e6e6fa;
 }
 
 html {
@@ -25,7 +25,7 @@ h6 {
     margin: 0 0 35px;
     text-transform: uppercase;
     font-family: 'Raleway', sans-serif;
-    font-weight: 700;
+    font-weight: 400;
     letter-spacing: 1px;
 }
 
@@ -53,12 +53,12 @@ a {
 a:hover,
 a:focus {
     text-decoration: none;
-    color: #11505d;
+    color: #e6e6fa;
 
 }
 
 .light {
-    font-weight: 200;
+    font-weight: 400;
 }
 
 .navbar-custom {
@@ -66,11 +66,11 @@ a:focus {
     border-bottom: 1px solid rgba(255,255,255,.3);
     text-transform: uppercase;
     font-family: 'Raleway', sans-serif;
-    background-color: #ffffff;
+    background: #303f9f;
 }
 
 .navbar-custom .navbar-brand {
-    font-weight: 700;
+    font-weight: 400;
 }
 
 .navbar-custom .navbar-brand:focus {
@@ -90,12 +90,18 @@ a:focus {
 
 .navbar-custom a {
     color: #fff;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 .navbar-custom .nav li.active {
     outline: none;
-    border-bottom: solid 2px #ffffff;
+    border-bottom: solid 1px #ffffff;
     /*background-color: rgba(255,255,255,.3);*/
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 .navbar-custom .nav li a {
@@ -108,8 +114,9 @@ a:focus {
 .navbar-custom .nav li a:focus
 {
     outline: 0;
-    border-bottom: solid 2px #ffffff;
+    border-bottom: solid 1px #ffffff;
     background-color: transparent;
+
 }
 
 @media(min-width:767px) {
@@ -144,22 +151,22 @@ a:focus {
     text-align: center;
 }
 
-.login a {
+.login  {
     float:right;
     background-color: transparent;
     text-transform: uppercase;
     font-family:  'Raleway', sans-serif;
     font-weight: 300;
     font-size: 16px;
-    padding: 2px;
+    padding: 10px;
     color: #ffffff;
     border: 2px solid #ffffff;
 }
 
-.login a:hover {
+.login:hover {
     background-color: #ffffff;
     color: #303f9f;
-    border-bottom: none;
+
 }
 
 /*FILLER BULLSHIT I WILL CHANGE THIS ALL */

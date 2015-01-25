@@ -16,7 +16,7 @@
     <!--    Custom CSS -->
     <link href="css/custom_css.css" rel="stylesheet">
 
-<title>HTML with PHP</title>
+    <title>HTML with PHP</title>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -29,6 +29,8 @@
                 <span class="light">Pi</span>
             </a>
         </div>
+
+
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-justified navbar-main-collapse">
@@ -47,13 +49,13 @@
                     <a class="page-scroll" href="#contact">Find your Advisor</a>
                 </li>
 
-                <li class="login">
-                    <a class="page-scroll" href="#contact">Log In</a>
-                </li>
 
             </ul>
+            <a class="login" href="#page-top"> <span class="light">Login</span>
+            </a>
         </div>
         <!-- /.navbar-collapse -->
+
     </div>
     <!-- /.container -->
 </nav>
@@ -61,12 +63,36 @@
 <!--SHOOT ME IN THE FACE I WANT TO SLEEP-->
 <header class="intro">
     <div class="intro-body">
-<div class="container">
-    <div class="row">
-        <div class="col-md-8">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
 
-</div></div></div> </div></header>
+                    <?php
+
+                    $yql_base_url = "http://query.yahooapis.com/v1/public/yql";
+                    $yql_query = "select * from yahoo.finance.quoteslist where symbol='^IXIC'";
+                    $yql_query_url = $yql_base_url . "?q=" . urlencode($yql_query) . "&env=store://datatables.org/alltableswithkeys";
+                    $yql_query_url .= "&format=json";
+
+                    $session = curl_init($yql_query_url);
+                    curl_setopt($session, CURLOPT_RETURNTRANSFER,true);
+                    $json = curl_exec($session);
+                    $phpObj =  json_decode($json);
+
+                    if(!is_null($phpObj->query->results)){
+                        foreach($phpObj->query->results as $quotes){
+                            print_r($quotes->symbol);
+                            print_r($quotes->Change);
+                        }
+                    }
+                    ini_set('display_errors',1);
+                    ini_set('display_startup_errors',1);
+                    error_reporting(-1);
+                    ?>
 
 
- </body>
+                </div></div></div> </div></header>
+
+
+</body>
 </html>
