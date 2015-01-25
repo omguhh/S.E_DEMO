@@ -10,7 +10,7 @@ h3 {
 }
 p {
     padding : 1%;
-    font-size: 30px;
+    font-size: 10px;
 }
 img {
     text-align : center;
@@ -22,7 +22,7 @@ img {
     margin : auto;
     width : auto;
     height: 100%;
-    background : #9DD8EA;
+    background : #e6e6fa;
     padding : 2%;
 }
 header {
@@ -32,7 +32,7 @@ header {
 
 nav{
     width: 100%;
-    background : #7388A7;
+    background : #e6e6fa;
     padding : 0;
     margin : 0 0;
 }
@@ -43,483 +43,148 @@ nav > a
 }
 
 nav li a
-{   float : center;
+{   float : none;
     text-decoration : none;
     color: #001139;
     display: block;
 }
 nav a:hover, nav li.active a {
-    background-color : #2A3958;
-    color : #EEEEEE;
+    background-color : #2b5797;
 }
 
-/* first level */
 
-nav > ul
+
+#nav1{
+    font-weight: 500;
+}
+
+#nav2
 {
-    list-style : none;
-    margin-left : 25%;
-    padding : 0;
-    /*height: 10%; */
-    background-color: #7388A7;
+    text-align: left;
+    background-color : #EEEEEE;
+    border: 25px #000000;
+    margin: 25px;
+    float: left;
+    width : 85%;
+    margin-top : 1.5%;
+    border-radius :0px;
+    margin-left: 1%;
+    font-size: 25px;
+margin-bottom: -15px;
+
+
 }
 
-#nav1 > ul{
-    /*padding : 1%;*/
-    margin-left : 0%;
+#nav3{
+    text-align: right;
+    background-color : #EEEEEE;
+    margin-top: -2.5%;
+    color: #EEEEEE;
 }
+
+#nav4 {
+
+    background-color: #00c853;
+    width: 300px;
+    padding: 35px;
+    margin: 25px;
+    float: left;
+    margin-left: 980px;
+    color: #EEEEEE;
+    font-size: 20px;
+}
+
+#nav5 {
+
+    background-color: #e53935;
+    width: 300px;
+    padding: 35px;
+    margin: 25px;
+    float: left;
+    margin-left: 500px;
+    margin-top: -150px;
+    color: #EEEEEE;
+    font-size: 20px;
+}
+
+#nav6 {
+
+    background-color: #3949ab;
+    width: 300px;
+    padding: 35px;
+    margin: 25px;
+    float: left;
+    margin-left: -806px;
+    margin-top: -150px;
+    color: #EEEEEE;
+    font-size: 20px;
+
+}
+#nav7{
+    text-align: left;
+    background-color : #EEEEEE;
+    border: 25px #000000;
+    margin: 25px;
+    float: left;
+    width : 85%;
+    margin-top : -1%;
+    border-radius :0px;
+    margin-left: 1%;
+    font-size: 25px;
+}
+
 
 nav > ul > li
 {
-
-    width: 15%;
-    height: 100%;
     float: left;
+    width: 15%;
+    margin-top: -1%;
+    list-style-type: none;
+    font-size: 20px;
+
+
 }
 
-
-nav > ul > li:not( :last-child ) > a
-{
-    border-right: 1px solid #7388A7;
-}
-
-
-
-.clearfix {
-    clear : both;
-}
 
 .left-col {
-    background : #7388A7;
+    background : #EEEEEE;
     max-height: 100%;
     height: 100%;
     float : left;
-    margin-top : 2%;
-    /*border-radius : 10px;*/
-    padding: 1%;
+    margin-top: 1.5%;
+    margin-left: -2%;
+    width:110px;
+
+
+
 }
 .sidebar {
-    background : #7388A7;
+    border-left: 5px solid #2b5797;
+    float: left;
     width : 85%;
-    float : right;
     margin-top : 2%;
     border-radius :0px;
+    margin-left: 1%;
 }
 
-hr{
-    margin-top: 0em;
-    margin-bottom: 0em;
+.HR {
+
+    font-family: 'Raleway', sans-serif;
+    color: #a2a9fe;
+    font-size: 1.5em;
+    font-weight: 200;
+    text-align: left;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #000;
 }
-
-
-#stocks {
-    background : #7388A7;
-    border-radius : 50px;
-    width: 80%;
-    margin-right: 25%;
-}
-
-
 footer{
     background : #7388A7;
     text-align: center;
 }
 
-#center{
-    vertical-align: middle;
-    text-align: center;
-}
-
-.login {
-    background : #7388A7;
-    width: 95%;
-    /*border-radius : 10px;*/
-    position: relative;
-    margin: 0 auto;
-    padding: 20px 20px 20px;
-
-}
-
-.head1 {
-    margin: -20px -20px 21px;
-    line-height: 40px;
-    font-size: 15px;
-    font-weight: bold;
-    color: #001139;
-    text-align: center;
-    text-shadow: 0 1px white;/*CSS3 property*/
-    background: #f3f3f3;
-    border-bottom: 1px solid #cfcfcf;
-    border-radius: 3px 3px 0 0;/*CSS3 property*/
-
-}
 p { margin: 20px 0 0; }
 p:first-child { margin-top: 0; }
-input[type=text], input[type=password] { width: 278px; }
-p.submit { text-align: center; }
-
-
-input {
-    font-family: "Roboto";
-    font-size: 14px;
-}
-
-input[type=text], input[type=password] {
-    margin: 5px;
-    padding: 0 10px;
-    width: 200px;
-    height: 30px;
-    color: #001139;
-    background: white;
-    border: 1px solid;
-    border-color: #EEEEEE #EEEEEE #EEEEEE;
-    border-radius: 2px; /*CSS3 property*/
-    outline: 5px solid #EEEEEE;
-}
-
-
-input[type=submit] {
-    padding: 0 18px;
-    height: 29px;
-    font-size: 12px;
-    font-weight: bold;
-    color: #527881;
-    text-shadow: 0 1px #e3f1f1;
-    background: #EEEEEE;
-    border: 1px solid;
-    border-color: #EEEEEE #EEEEEE #EEEEEE;
-    border-radius: 16px; /*CSS3 property*/
-    outline: 0;
-
-}
-
-
-/*-------Media------*/
-@media only screen and ( max-width: 1000px )
-{
-    nav
-    {
-        width: 100%;
-        position: static;
-        margin: 0;
-    }
-}
-
-/*will apply if the viewing area is smaller than 800px.*/
-@media screen and (max-width: 800px) {
-    .CSSlink{display: all;}
-    #dissapear{display: none;}
-
-    body
-    {
-        font-size: 70%;
-        font-family: "Roboto";
-    }
-
-    #table {
-        border-radius : 25px;
-        text-align: center;
-        vertical-align: middle;
-    }
-
-    .CSSTable {
-        text-align: center;
-        vertical-align: middle;
-        font-size:80%;
-        margin:1px;
-        padding:0px;
-        width:40% ;
-        height: 40%;
-    }
-
-
-    .CSSTable td{
-        height:50%;
-        vertical-align:middle;
-        background-color:#DFDEF0;
-        text-align:center;
-        padding:5px;
-        font-size:80%;
-        font-weight:normal;
-        color:#080343;
-    }
-    .CSSTable th{
-        height: 50%;
-        text-align:center;
-        font-size:80%;
-        font-weight:bold;
-        color:#080343;
-    }
-
-
-    #nav
-    {
-        position: relative;
-        top: auto;
-        left: auto;
-    }
-    #nav > a
-    {
-        width: 30px;
-        height:30px;
-        text-align: left;
-        text-indent: -9999px;
-        background-color:#7388A7 ;
-        position: relative;
-
-    }
-    #nav > a:before,
-    #nav > a:after
-    {
-        position: absolute;
-        border: 2px solid #fff;
-        top: 35%;
-        left: 25%;
-        right: 25%;
-        content: '';
-    }
-    #nav > a:after
-    {
-        top: 60%;
-    }
-
-    #nav:not( :target ) > a:first-of-type,
-    #nav:target > a:last-of-type
-    {
-        display: block;
-    }
-
-
-    /* first level */
-
-    #nav > ul
-    {
-        height: auto;
-        display: none;
-        left: 0;
-        right: 0;
-    }
-    #nav:target > ul
-    {
-        display: block;
-    }
-    #nav > ul > li
-    {
-        width: 100%;
-        float: left;
-    }
-    #nav > ul > li > a
-    {
-        height: auto;
-        text-align: left;
-    }
-    #nav > ul > li:not( :last-child ) > a
-    {
-        border-right: none;
-        border-bottom: 1px solid #7388A7;
-    }
-
-
-    /* second level */
-
-    #nav li ul
-    {
-        position: static;
-        padding: 20px;
-        padding-top: 0;
-    }
-
-    .login {
-        background : #7388A7;
-        width: 88%;
-        border-radius : 10px;
-        position: relative;
-        margin: 0 auto;
-        padding: 20px 20px 20px;
-
-    }
-
-    .head1 {
-        margin: -20px -20px 21px;
-        line-height: 30px;
-        font-size: 10px;
-        font-weight: bold;
-        color: #001139;
-        text-align: center;
-        text-shadow: 0 1px white;/*CSS3 property*/
-        background: #f3f3f3;
-        border-bottom: 1px solid #cfcfcf;
-        border-radius: 2px 2px 0 0;/*CSS3 property*/
-
-    }
-    p { margin: 20px 0 0; }
-    p:first-child { margin-top: 0; }
-    input[type=text], input[type=password] { width: 278px; }
-    p.submit { text-align: center; }
-
-
-    input {
-        font-family: 'Lucida Grande', Tahoma, Verdana, sans-serif;
-        font-size: 12px;
-    }
-
-    input[type=text], input[type=password] {
-        margin: 5px;
-        padding: 0 10px;
-        width: 100px;
-        height: 20px;
-        color: #001139;
-        background: white;
-        border: 1px solid;
-        border-color: #EEEEEE #EEEEEE #EEEEEE;
-        border-radius: 2px; /*CSS3 property*/
-        outline: 3px solid #EEEEEE;
-    }
-
-
-
-    input[type=submit] {
-        padding: 0 18px;
-        height: 18px;
-        font-size: 10px;
-        font-weight: bold;
-        color: #527881;
-        text-shadow: 0 1px #e3f1f1;
-        background: #EEEEEE;
-        border: 1px solid;
-        border-color: #EEEEEE #EEEEEE #EEEEEE;
-        border-radius: 12px; /*CSS3 property*/
-        outline: 0;
-
-    }
-}
-
-/*will apply if the viewing area is between 800px and 1120px.*/
-
-@media screen and (min-width: 800px) and (max-width: 1120px) {
-    body {
-        font-size: 14px;
-        text-align: center;
-    }
-    .CSSlink{display: none;}
-
-
-    #table {
-        border-radius : 20px;
-        text-align: center;
-        vertical-align: middle;
-    }
-
-    .CSSTable {
-        text-align: center;
-        vertical-align: middle;
-        margin:1px;
-        padding:0px;
-        width:70% ;
-        height: 70%;
-    }
-
-
-    .CSSTable td{
-        height:45%;
-        vertical-align:middle;
-        background-color:#DFDEF0;
-        text-align:center;
-        padding:5px;
-        font-size:70%;
-        font-weight:normal;
-        color:#080343;
-    }
-
-    .CSSTable tr:first-child td{
-        height: 45%;
-        text-align:center;
-        font-size:70%;
-        font-weight:bold;
-        color:#080343;
-    }
-
-    .login {
-        background : #7388A7;
-        width: 93%;
-        border-radius : 15px;
-        position: relative;
-        margin: 0 auto;
-        padding: 20px 20px 20px;
-        font-size: 15px;
-    }
-
-    .head1 {
-        margin: -20px -20px 21px;
-        line-height: 60px;
-        font-size: 20px;
-        font-weight: bold;
-        color: #001139;
-        text-align: center;
-        text-shadow: 0 1px white;/*CSS3 property*/
-        background: #f3f3f3;
-        border-bottom: 1px solid #cfcfcf;
-        border-radius: 3px 3px 0 0;/*CSS3 property*/
-
-    }
-    p { margin: 20px 0 0; }
-    p:first-child { margin-top: 0; }
-    input[type=text], input[type=password] { width: 278px; }
-    p.submit { text-align: center; }
-
-
-    input {
-        font-family: 'Lucida Grande', Tahoma, Verdana, sans-serif;
-        font-size: 14px;
-    }
-
-    input[type=text], input[type=password] {
-        margin: 5px;
-        padding: 0 10px;
-        width: 200px;
-        height: 34px;
-        color: #001139;
-        background: white;
-        border: 1px solid;
-        border-color: #EEEEEE #EEEEEE #EEEEEE;
-        border-radius: 2px; /*CSS3 property*/
-        outline: 5px solid #EEEEEE;
-    }
-
-
-    input[type=submit] {
-        padding: 0 18px;
-        height: 29px;
-        font-size: 12px;
-        font-weight: bold;
-        color: #527881;
-        text-shadow: 0 1px #e3f1f1;
-        background: #EEEEEE;
-        border: 1px solid;
-        border-color: #EEEEEE #EEEEEE #EEEEEE;
-        border-radius: 16px; /*CSS3 property*/
-        outline: 0;
-
-    }
-
-
-}
-
-@media screen and (max-width: 740px)  {
-    .left-col {
-        width: 100%;
-    }
-    .sidebar {
-        width: 100%;
-    }
-}
-
-
-/*will apply if the viewing area is greater than 780px*/
-@media screen and (min-width: 900px) {
-    .CSSlink{display: none;}
-}
-
 
 
 
