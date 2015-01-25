@@ -145,7 +145,7 @@
                         </div>
                     </div>
 
-                    <div id="container" style="height: 300px;width: 850px"></div>
+                    <div id="container" style="height: 300px;width: 850px;min-width:250px;"></div>
 
 
                     <?php
