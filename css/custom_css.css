@@ -2,13 +2,14 @@
 * Custom CSS for the mainpages. ATM (19TH Jan) It's being used for the market insights page.
 */
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,200);
+@import url(http://fonts.googleapis.com/css?family=Roboto:900,500,700);
 
 body {
     width: 100%;
     height: 100%;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
-    background-color: #e6e6fa;
+    background-color: #ffffff;
 }
 
 html {
@@ -169,6 +170,12 @@ a:focus {
 
 }
 
+
+.navbar-nav>li>a {
+    padding-top: 15px;
+    padding-bottom: 1px;
+}
+
 /*FILLER BULLSHIT I WILL CHANGE THIS ALL */
 
 .intro {
@@ -188,3 +195,35 @@ a:focus {
     display: table-cell;
     vertical-align: middle;
 }
+
+.header{
+    color: #474747;
+    font-weight: bold;
+    font-size: 30px;
+    width: 100%;
+    /*background-color: red;*/
+    text-align: left;
+}
+
+/*market ticker information.aka bs */
+#SP_market{text-align: left;padding: 5px; font-family: 'Roboto', sans-serif;font-weight: 700;}
+.legend_line{
+    top:3px;
+    width: 6px;
+    height: 20px;
+    display: inline-block;
+    zoom: 1;
+    background-color: #b500e9;
+}
+#SP_market p{
+    display: inline;
+    font-size: 20px;
+}
+
+.ticker-lows  {
+    font-size: 18px;
+    color: #cf5125;
+}
+
+.main-ticker { font-size: 27px !important; }
+.tiny-things, .tiny-things p {  font-size: 17px !important; color: #b3b3b3;font-weight: 500;}

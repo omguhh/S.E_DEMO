@@ -16,6 +16,41 @@
     <!--    Custom CSS -->
     <link href="css/custom_css.css" rel="stylesheet">
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"> </script>
+    <script src="http://code.highcharts.com/stock/highstock.js"></script>
+    <script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
+
+    <script>
+
+        $(function () {
+
+            $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function (data) {
+                // Create the chart
+                $('#container').highcharts('StockChart', {
+
+
+                    rangeSelector : {
+                        selected : 1
+                    },
+
+                    title : {
+                        text : 'AAPL Stock Price'
+                    },
+
+                    series : [{
+                        name : 'AAPL',
+                        data : data,
+                        tooltip: {
+                            valueDecimals: 2
+                        }
+                    }]
+                });
+            });
+
+        });
+    </script>
+
+
     <title>HTML with PHP</title>
 </head>
 
@@ -65,7 +100,53 @@
     <div class="intro-body">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
+                <div>
+
+            <div class="header">Market Performance</div>
+
+                    <div class="col-md-12">
+                        <div class="col-md-3"  id="SP_market">
+                           <span class="legend_line"></span>
+                            <span><p style="font-weight: 500;color:blue">S&P 500</p></span>
+                            <br>
+                            <p class="main-ticker"> 2,012</p> <span class="ticker-lows"> -11.33 (0.55%)</span> <br>
+                            <div class="tiny-things"><p>High:2,102.12</p> <span> Low:2,102.12</span></div>
+
+                        </div>
+                        <div class="col-md-3"  id="SP_market">
+                            <span class="legend_line"></span>
+                            <span><p style="font-weight: 500;color:blue"">Dow</p></span>
+                            <br>
+                            <p class="main-ticker">2,012</p> <span class="ticker-lows"> -11.33 (0.55%)</span> <br>
+                            <div class="tiny-things"><p>High:2,102.12</p> <span> Low:2,102.12</span></div>
+                        </div>
+                        <div class="col-md-3"  id="SP_market">
+                            <span class="legend_line"></span>
+                            <span><p style="font-weight: 500;color:blue"">Nasdaq</p></span>
+                            <br>
+                            <p class="main-ticker">2,012</p> <span class="ticker-lows"> -11.33 (0.55%)</span> <br>
+                            <div class="tiny-things"><p>High:2,102.12</p> <span> Low:2,102.12</span></div>
+                        </div>
+
+                        <div class="col-md-3" style="background-color: #303f9f;padding: 10px;">
+                         <form id="searchthis" action="/search" style="display:inline;" method="get">
+                             <div class="form-group">
+                         <div class="input-group">
+                    <input autocomplete="on" class="form-control" name="q" title="search" placeholder="Search stock ticker" id="search-query-3" style="width:145%;border-radius: 5px;height:40px;border-color:transparent;" />
+                                  </div>
+                             </div>
+                         </form>
+
+                            <p style="text-align: left;font-size: 18px;color:#fff;">
+                                <b> Recommended Symbols: </b> <br>
+                                AAPL (US) | BABA (US) |
+                                EURCHF (CUR) | FB (US)
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="container" style="height: 300px;width: 850px"></div>
+
 
                     <?php
 
@@ -91,7 +172,8 @@
                     ?>
 
 
-                </div></div></div> </div></header>
+                </div></div></div> </div>
+</header>
 
 
 </body>
