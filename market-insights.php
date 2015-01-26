@@ -16,7 +16,42 @@
     <!--    Custom CSS -->
     <link href="css/custom_css.css" rel="stylesheet">
 
-<title>HTML with PHP</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"> </script>
+    <script src="http://code.highcharts.com/stock/highstock.js"></script>
+    <script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
+
+    <script>
+
+        $(function () {
+
+            $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function (data) {
+                // Create the chart
+                $('#container').highcharts('StockChart', {
+
+
+                    rangeSelector : {
+                        selected : 1
+                    },
+
+                    title : {
+                        text : 'AAPL Stock Price'
+                    },
+
+                    series : [{
+                        name : 'AAPL',
+                        data : data,
+                        tooltip: {
+                            valueDecimals: 2
+                        }
+                    }]
+                });
+            });
+
+        });
+    </script>
+
+
+    <title>HTML with PHP</title>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -29,6 +64,8 @@
                 <span class="light">Pi</span>
             </a>
         </div>
+
+
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-justified navbar-main-collapse">
@@ -47,13 +84,13 @@
                     <a class="page-scroll" href="#contact">Find your Advisor</a>
                 </li>
 
-                <li class="login">
-                    <a class="page-scroll" href="#contact">Log In</a>
-                </li>
 
             </ul>
+            <a class="login" href="#page-top"> <span class="light">Login</span>
+            </a>
         </div>
         <!-- /.navbar-collapse -->
+
     </div>
     <!-- /.container -->
 </nav>
@@ -61,61 +98,83 @@
 <!--SHOOT ME IN THE FACE I WANT TO SLEEP-->
 <header class="intro">
     <div class="intro-body">
-<div class="container">
-    <div class="row">
-        <div class="col-md-8">
-            <?php
-            include_once('yahoostock.php');
+        <div class="container">
+            <div class="row">
+                <div>
 
-            $objYahooStock = new YahooStock;
+            <div class="header">Market Performance</div>
 
-            /**
-            Add format/parameters to be fetched
+                    <div class="col-md-12">
+                        <div class="col-md-3"  id="SP_market">
+                           <span class="legend_line"></span>
+                            <span><p style="font-weight: 500;color:blue">S&P 500</p></span>
+                            <br>
+                            <p class="main-ticker"> 2,012</p> <span class="ticker-lows"> -11.33 (0.55%)</span> <br>
+                            <div class="tiny-things"><p>High:2,102.12</p> <span> Low:2,102.12</span></div>
 
-            s = Symbol
-            n = Name
-            l1 = Last Trade (Price Only)
-            d1 = Last Trade Date
-            t1 = Last Trade Time
-            c = Change and Percent Change
-            v = Volume
-             */
-            $objYahooStock->addFormat("snl1d1t1cv");
+                        </div>
+                        <div class="col-md-3"  id="SP_market">
+                            <span class="legend_line"></span>
+                            <span><p style="font-weight: 500;color:blue"">Dow</p></span>
+                            <br>
+                            <p class="main-ticker">2,012</p> <span class="ticker-lows"> -11.33 (0.55%)</span> <br>
+                            <div class="tiny-things"><p>High:2,102.12</p> <span> Low:2,102.12</span></div>
+                        </div>
+                        <div class="col-md-3"  id="SP_market">
+                            <span class="legend_line"></span>
+                            <span><p style="font-weight: 500;color:blue"">Nasdaq</p></span>
+                            <br>
+                            <p class="main-ticker">2,012</p> <span class="ticker-lows"> -11.33 (0.55%)</span> <br>
+                            <div class="tiny-things"><p>High:2,102.12</p> <span> Low:2,102.12</span></div>
+                        </div>
 
-            /**
-            Add company stock code to be fetched
+                        <div class="col-md-3" style="background-color: #303f9f;padding: 10px;">
+                         <form id="searchthis" action="/search" style="display:inline;" method="get">
+                             <div class="form-group">
+                         <div class="input-group">
+                    <input autocomplete="on" class="form-control" name="q" title="search" placeholder="Search stock ticker" id="search-query-3" style="width:145%;border-radius: 5px;height:40px;border-color:transparent;" />
+                                  </div>
+                             </div>
+                         </form>
 
-            msft = Microsoft
-            amzn = Amazon
-            yhoo = Yahoo
-            goog = Google
-            aapl = Apple
-             */
-            $objYahooStock->addStock("msft");
-            $objYahooStock->addStock("amzn");
-            $objYahooStock->addStock("yhoo");
-            $objYahooStock->addStock("goog");
-            $objYahooStock->addStock("vgz");
+                            <p style="text-align: left;font-size: 18px;color:#fff;">
+                                <b> Recommended Symbols: </b> <br>
+                                AAPL (US) | BABA (US) |
+                                EURCHF (CUR) | FB (US)
+                            </p>
+                        </div>
+                    </div>
 
-            /**
-             * Printing out the data
-             */
-            foreach( $objYahooStock->getQuotes() as $code => $stock)
-            {
-                ?>
-                Code: <?php echo $stock[0]; ?> <br />
-                Name: <?php echo $stock[1]; ?> <br />
-                Last Trade Price: <?php echo $stock[2]; ?> <br />
-                Last Trade Date: <?php echo $stock[3]; ?> <br />
-                Last Trade Time: <?php echo $stock[4]; ?> <br />
-                Change and Percent Change: <?php echo $stock[5]; ?> <br />
-                Volume: <?php echo $stock[6]; ?> <br /><br />
-            <?php
-            }
-            ?>
-
-</div></div></div> </div></header>
+                    <div id="container" style="height: 300px;width: 850px;min-width:250px;"></div>
 
 
- </body>
+                    <?php
+
+                    $yql_base_url = "http://query.yahooapis.com/v1/public/yql";
+                    $yql_query = "select * from yahoo.finance.quoteslist where symbol='^IXIC'";
+                    $yql_query_url = $yql_base_url . "?q=" . urlencode($yql_query) . "&env=store://datatables.org/alltableswithkeys";
+                    $yql_query_url .= "&format=json";
+
+                    $session = curl_init($yql_query_url);
+                    curl_setopt($session, CURLOPT_RETURNTRANSFER,true);
+                    $json = curl_exec($session);
+                    $phpObj =  json_decode($json);
+
+                    if(!is_null($phpObj->query->results)){
+                        foreach($phpObj->query->results as $quotes){
+                            print_r($quotes->symbol);
+                            print_r($quotes->Change);
+                        }
+                    }
+                    ini_set('display_errors',1);
+                    ini_set('display_startup_errors',1);
+                    error_reporting(-1);
+                    ?>
+
+
+                </div></div></div> </div>
+</header>
+
+
+</body>
 </html>
