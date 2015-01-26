@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 26, 2015 at 10:14 PM
+-- Generation Time: Jan 26, 2015 at 10:34 PM
 -- Server version: 5.5.41-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.5
 
@@ -40,7 +40,9 @@ CREATE TABLE IF NOT EXISTS `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `admin_name`, `admin_phone`, `admin_email`) VALUES
-(1, 'nombre', 5042069, 'blazeit@swagm8.com');
+(1, 'nombre', 5042069, 'blazeit@swagm8.com'),
+(2, 'yasmine fadel', 509999, 'her_email@email.com'),
+(3, 'Mr. Shaath', 50444444, 'hello@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -65,6 +67,7 @@ CREATE TABLE IF NOT EXISTS `calender` (
 --
 
 INSERT INTO `calender` (`calender_id`, `meeting_title`, `meeting_date`, `meeting_time`, `rc_id`, `fa_id`) VALUES
+(2, 'another meeting', '2015-01-27', '11:55:00', 55, 112),
 (100, 'stocks and stuff', '2015-01-12', '00:12:30', 123, 111);
 
 -- --------------------------------------------------------
@@ -90,7 +93,9 @@ CREATE TABLE IF NOT EXISTS `financial_advisor` (
 --
 
 INSERT INTO `financial_advisor` (`fa_id`, `fa_name`, `fa_email`, `fa_address`, `fa_phone`, `fa_rating`, `years_experience`, `certificate`) VALUES
-(111, 'Johnny Depp', 'financial_pirate@gmail.com', 'Home 4 street, 2nd floor ', 567890, 5, 12, 'Dubai');
+(3, 'Ken Wu', 'emailz@hotmail.com', 'hong kong 6th street', 9302913, 9, 23, 'Beijing'),
+(111, 'Johnny Depp', 'financial_pirate@gmail.com', 'Home 4 street, 2nd floor ', 567890, 5, 12, 'Dubai'),
+(112, 'Tea Bag', 'lipton@gmail.com', 'London', 505050, 8, 3, 'Bristol');
 
 -- --------------------------------------------------------
 
@@ -116,7 +121,9 @@ CREATE TABLE IF NOT EXISTS `registered_client` (
 --
 
 INSERT INTO `registered_client` (`rc_id`, `rc_name`, `rc_email`, `rc_address`, `rc_phone`, `fa_id`, `cash_balance`) VALUES
-(123, 'client1', 'client1@yahoo.com', 'clients address', 5968120, 111, 420420);
+(55, 'hihru', 'email@eail.com', 'hihruu', 5050505, 112, 42069696),
+(123, 'client1', 'client1@yahoo.com', 'clients address', 5968120, 111, 420420),
+(133, 'Shamsudin Mohammed', 'sm143@live.com', 'Dubai', 5676767, 3, 841203);
 
 -- --------------------------------------------------------
 
@@ -140,7 +147,9 @@ CREATE TABLE IF NOT EXISTS `stocks` (
 --
 
 INSERT INTO `stocks` (`stock_id`, `stock_name`, `stock_category`, `stock_price`, `no_of_stocks`, `fa_id`) VALUES
-(1, 'msft', 1, 45, 3, 111);
+(1, 'msft', 1, 45, 3, 111),
+(114, 'futtaim', 1, 32, 6, 3),
+(222, 'toyota', 1, 91, 90, 112);
 
 --
 -- Constraints for dumped tables
