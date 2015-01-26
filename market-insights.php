@@ -20,6 +20,24 @@
     <script src="http://code.highcharts.com/stock/highstock.js"></script>
     <script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
 
+
+    <?php
+
+    $yql_base_url = "http://query.yahooapis.com/v1/public/yql";
+    $yql_query = "select * from yahoo.finance.quoteslist where symbol in ('^GSPC','^NYA','^IXIC')";
+    $yql_query_url = $yql_base_url . "?q=" . urlencode($yql_query) . "&env=store://datatables.org/alltableswithkeys";
+    $yql_query_url .= "&format=json";
+
+    $session = curl_init($yql_query_url);
+    curl_setopt($session, CURLOPT_RETURNTRANSFER,true);
+    $json = curl_exec($session);
+    $phpObj =  json_decode($json);
+
+    ini_set('display_errors',1);
+    ini_set('display_startup_errors',1);
+    error_reporting(-1);
+    ?>
+
     <script>
 
         $(function () {
@@ -30,15 +48,15 @@
 
 
                     rangeSelector : {
-                        selected : 1
+                        selected : 2
                     },
 
                     title : {
-                        text : 'AAPL Stock Price'
+                        text : 'S&P Market Performance'
                     },
 
                     series : [{
-                        name : 'AAPL',
+                        name : 'S&P 500 ',
                         data : data,
                         tooltip: {
                             valueDecimals: 2
@@ -51,7 +69,7 @@
     </script>
 
 
-    <title>HTML with PHP</title>
+    <title>Market Insights</title>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -64,9 +82,6 @@
                 <span class="light">Pi</span>
             </a>
         </div>
-
-
-
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-justified navbar-main-collapse">
             <ul class="nav navbar-nav">
@@ -75,9 +90,9 @@
                     <a href="#page-top"></a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#about">About</a>
+                    <a class="page-scroll" href="homepage.html">About</a>
                 </li>
-                <li class="active">
+                <li>
                     <a class="page-scroll " href="#download">Market Insights</a>
                 </li>
                 <li>
@@ -109,68 +124,68 @@
                            <span class="legend_line"></span>
                             <span><p style="font-weight: 500;color:blue">S&P 500</p></span>
                             <br>
-                            <p class="main-ticker"> 2,012</p> <span class="ticker-lows"> -11.33 (0.55%)</span> <br>
-                            <div class="tiny-things"><p>High:2,102.12</p> <span> Low:2,102.12</span></div>
+
+                            <?php
+
+                            if(!is_null($phpObj->query->results)){
+                            foreach ($phpObj->query->results as $quotes){
+//                            print_r($quotes->symbol);
+//                            print_r($quotes->Change);
+
+
+                            ?>
+                            <!-- LastTradePriceOnly-->
+
+                            <p class="main-ticker"><?php print_r($quotes[0]->LastTradePriceOnly); ?></p> <span class="ticker-lows"> <?php  print_r($quotes[0]->Change); ?></span>
+                            <br>
+                            <div class="tiny-things"><p>High:<?php  print_r($quotes[0]->DaysHigh); ?> </p> <span>Low: <?php  print_r($quotes[0]->DaysLow); ?></span></div>
 
                         </div>
-                        <div class="col-md-3"  id="SP_market">
+                        <div class="col-md-3" id="SP_market">
                             <span class="legend_line"></span>
                             <span><p style="font-weight: 500;color:blue"">Dow</p></span>
                             <br>
-                            <p class="main-ticker">2,012</p> <span class="ticker-lows"> -11.33 (0.55%)</span> <br>
-                            <div class="tiny-things"><p>High:2,102.12</p> <span> Low:2,102.12</span></div>
-                        </div>
-                        <div class="col-md-3"  id="SP_market">
-                            <span class="legend_line"></span>
-                            <span><p style="font-weight: 500;color:blue"">Nasdaq</p></span>
+
+                            <p class="main-ticker"><?php print_r($quotes[1]->LastTradePriceOnly); ?></p> <span class="ticker-lows"> <?php  print_r($quotes[1]->Change); ?></span>
                             <br>
-                            <p class="main-ticker">2,012</p> <span class="ticker-lows"> -11.33 (0.55%)</span> <br>
-                            <div class="tiny-things"><p>High:2,102.12</p> <span> Low:2,102.12</span></div>
+                            <div class="tiny-things"><p>High:<?php  print_r($quotes[1]->DaysHigh); ?> </p> <span>Low: <?php  print_r($quotes[1]->DaysLow); ?></span></div>
+
+                        </div>
+                        <div class="col-md-3" id="SP_market">
+                            <span class="legend_line"></span>
+                            <span><p style="font-weight: 500;color:blue"">NYSE</p></span>
+                            <br>
+
+                            <p class="main-ticker"><?php print_r($quotes[2]->LastTradePriceOnly); ?></p> <span class="ticker-lows"> <?php  print_r($quotes[2]->Change); ?></span>
+                            <br>
+                            <div class="tiny-things"><p>High:<?php  print_r($quotes[2]->DaysHigh); ?> </p> <span>Low: <?php  print_r($quotes[2]->DaysLow); ?></span></div>
+
                         </div>
 
                         <div class="col-md-3" style="background-color: #303f9f;padding: 10px;">
-                         <form id="searchthis" action="/search" style="display:inline;" method="get">
-                             <div class="form-group">
-                         <div class="input-group">
-                    <input autocomplete="on" class="form-control" name="q" title="search" placeholder="Search stock ticker" id="search-query-3" style="width:145%;border-radius: 5px;height:40px;border-color:transparent;" />
-                                  </div>
-                             </div>
-                         </form>
-
+                            <form id="searchthis" action="/search" style="display:inline;" method="get">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input autocomplete="on" class="form-control" name="q" title="search"
+                                               placeholder="Search stock ticker" id="search-query-3"
+                                               style="width:145%;border-radius: 5px;height:40px;border-color:transparent;"/>
+                                    </div>
+                                </div>
+                            </form>
+                            <?php
+                            }
+                            }
+                            ?>
                             <p style="text-align: left;font-size: 18px;color:#fff;">
                                 <b> Recommended Symbols: </b> <br>
                                 AAPL (US) | BABA (US) |
                                 EURCHF (CUR) | FB (US)
                             </p>
                         </div>
+
+                        <div id="container" style="height: 300px;width: 850px;min-width:250px;"></div>
+
                     </div>
-
-                    <div id="container" style="height: 300px;width: 850px;min-width:250px;"></div>
-
-
-                    <?php
-
-                    $yql_base_url = "http://query.yahooapis.com/v1/public/yql";
-                    $yql_query = "select * from yahoo.finance.quoteslist where symbol='^IXIC'";
-                    $yql_query_url = $yql_base_url . "?q=" . urlencode($yql_query) . "&env=store://datatables.org/alltableswithkeys";
-                    $yql_query_url .= "&format=json";
-
-                    $session = curl_init($yql_query_url);
-                    curl_setopt($session, CURLOPT_RETURNTRANSFER,true);
-                    $json = curl_exec($session);
-                    $phpObj =  json_decode($json);
-
-                    if(!is_null($phpObj->query->results)){
-                        foreach($phpObj->query->results as $quotes){
-                            print_r($quotes->symbol);
-                            print_r($quotes->Change);
-                        }
-                    }
-                    ini_set('display_errors',1);
-                    ini_set('display_startup_errors',1);
-                    error_reporting(-1);
-                    ?>
-
 
                 </div></div></div> </div>
 </header>

@@ -186,5 +186,18 @@ footer{
 p { margin: 20px 0 0; }
 p:first-child { margin-top: 0; }
 
+.navbar { padding: 0 !important; }
+.fa_account {
+    float:right;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-family:  'Raleway', sans-serif;
+    font-weight: 100;
+    font-size: 18px;
+    padding: 10px;
+    color: #ffffff;
+
+}
+
 
 

@@ -59,7 +59,8 @@ a:focus {
 }
 
 .light {
-    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    font-weight:700;
 }
 
 .navbar-custom {
@@ -109,15 +110,18 @@ a:focus {
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
+    border-bottom: 2px transparent;
+    border-bottom-style: solid
+
 }
 
 .navbar-custom .nav li a:hover,
 .navbar-custom .nav li a:focus
 {
     outline: 0;
-    border-bottom: solid 1px #ffffff;
+    border-bottom: solid 2px #ffffff;
     background-color: transparent;
-
+    transition-duration: 0.15s;
 }
 
 @media(min-width:767px) {
@@ -160,6 +164,8 @@ a:focus {
     font-weight: 300;
     font-size: 16px;
     padding: 10px;
+    padding-left: 35px;
+    padding-right: 35px;
     color: #ffffff;
     border: 2px solid #ffffff;
 }
@@ -227,3 +233,7 @@ a:focus {
 
 .main-ticker { font-size: 27px !important; }
 .tiny-things, .tiny-things p {  font-size: 17px !important; color: #b3b3b3;font-weight: 500;}
+#container{margin-top: 115px; position: absolute;}
+
+
+
