@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 20, 2015 at 12:49 PM
--- Server version: 5.5.40-0ubuntu0.14.04.1
+-- Generation Time: Jan 26, 2015 at 10:34 PM
+-- Server version: 5.5.41-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -31,8 +31,18 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `admin_name` varchar(35) NOT NULL,
   `admin_phone` int(11) NOT NULL,
   `admin_email` varchar(35) NOT NULL,
-  PRIMARY KEY (`admin_id`)
+  PRIMARY KEY (`admin_id`),
+  UNIQUE KEY `admin_name` (`admin_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_id`, `admin_name`, `admin_phone`, `admin_email`) VALUES
+(1, 'nombre', 5042069, 'blazeit@swagm8.com'),
+(2, 'yasmine fadel', 509999, 'her_email@email.com'),
+(3, 'Mr. Shaath', 50444444, 'hello@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -45,20 +55,20 @@ CREATE TABLE IF NOT EXISTS `calender` (
   `meeting_title` varchar(25) NOT NULL,
   `meeting_date` date NOT NULL,
   `meeting_time` time NOT NULL,
-  PRIMARY KEY (`calender_id`)
+  `rc_id` int(11) NOT NULL,
+  `fa_id` int(11) NOT NULL,
+  PRIMARY KEY (`calender_id`),
+  UNIQUE KEY `rc_id` (`rc_id`),
+  UNIQUE KEY `fa_id` (`fa_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `client_wallet`
+-- Dumping data for table `calender`
 --
 
-CREATE TABLE IF NOT EXISTS `client_wallet` (
-  `wallet_id` int(11) NOT NULL,
-  `cash_balance` int(20) NOT NULL,
-  PRIMARY KEY (`wallet_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `calender` (`calender_id`, `meeting_title`, `meeting_date`, `meeting_time`, `rc_id`, `fa_id`) VALUES
+(2, 'another meeting', '2015-01-27', '11:55:00', 55, 112),
+(100, 'stocks and stuff', '2015-01-12', '00:12:30', 123, 111);
 
 -- --------------------------------------------------------
 
@@ -78,6 +88,15 @@ CREATE TABLE IF NOT EXISTS `financial_advisor` (
   PRIMARY KEY (`fa_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `financial_advisor`
+--
+
+INSERT INTO `financial_advisor` (`fa_id`, `fa_name`, `fa_email`, `fa_address`, `fa_phone`, `fa_rating`, `years_experience`, `certificate`) VALUES
+(3, 'Ken Wu', 'emailz@hotmail.com', 'hong kong 6th street', 9302913, 9, 23, 'Beijing'),
+(111, 'Johnny Depp', 'financial_pirate@gmail.com', 'Home 4 street, 2nd floor ', 567890, 5, 12, 'Dubai'),
+(112, 'Tea Bag', 'lipton@gmail.com', 'London', 505050, 8, 3, 'Bristol');
+
 -- --------------------------------------------------------
 
 --
@@ -90,8 +109,21 @@ CREATE TABLE IF NOT EXISTS `registered_client` (
   `rc_email` varchar(45) NOT NULL,
   `rc_address` varchar(65) NOT NULL,
   `rc_phone` int(11) NOT NULL,
-  PRIMARY KEY (`rc_id`)
+  `fa_id` int(11) NOT NULL,
+  `cash_balance` int(11) NOT NULL,
+  PRIMARY KEY (`rc_id`),
+  UNIQUE KEY `fa_id` (`fa_id`),
+  UNIQUE KEY `wallet_id` (`cash_balance`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `registered_client`
+--
+
+INSERT INTO `registered_client` (`rc_id`, `rc_name`, `rc_email`, `rc_address`, `rc_phone`, `fa_id`, `cash_balance`) VALUES
+(55, 'hihru', 'email@eail.com', 'hihruu', 5050505, 112, 42069696),
+(123, 'client1', 'client1@yahoo.com', 'clients address', 5968120, 111, 420420),
+(133, 'Shamsudin Mohammed', 'sm143@live.com', 'Dubai', 5676767, 3, 841203);
 
 -- --------------------------------------------------------
 
@@ -102,51 +134,45 @@ CREATE TABLE IF NOT EXISTS `registered_client` (
 CREATE TABLE IF NOT EXISTS `stocks` (
   `stock_id` int(11) NOT NULL,
   `stock_name` varchar(15) NOT NULL,
-  `stock_category` varchar(15) NOT NULL,
+  `stock_category` tinyint(1) NOT NULL COMMENT '0-watchlist, 1-own',
   `stock_price` int(11) NOT NULL,
   `no_of_stocks` int(11) NOT NULL,
-  PRIMARY KEY (`stock_id`)
+  `fa_id` int(11) NOT NULL,
+  PRIMARY KEY (`stock_id`),
+  UNIQUE KEY `fa_id` (`fa_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `stocks`
+--
+
+INSERT INTO `stocks` (`stock_id`, `stock_name`, `stock_category`, `stock_price`, `no_of_stocks`, `fa_id`) VALUES
+(1, 'msft', 1, 45, 3, 111),
+(114, 'futtaim', 1, 32, 6, 3),
+(222, 'toyota', 1, 91, 90, 112);
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `admin`
---
-ALTER TABLE `admin`
-  ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`admin_id`) REFERENCES `financial_advisor` (`fa_id`);
-
---
 -- Constraints for table `calender`
 --
 ALTER TABLE `calender`
-  ADD CONSTRAINT `calender_ibfk_1` FOREIGN KEY (`calender_id`) REFERENCES `financial_advisor` (`fa_id`);
-
---
--- Constraints for table `client_wallet`
---
-ALTER TABLE `client_wallet`
-  ADD CONSTRAINT `client_wallet_ibfk_1` FOREIGN KEY (`wallet_id`) REFERENCES `registered_client` (`rc_id`);
-
---
--- Constraints for table `financial_advisor`
---
-ALTER TABLE `financial_advisor`
-  ADD CONSTRAINT `financial_advisor_ibfk_1` FOREIGN KEY (`fa_id`) REFERENCES `registered_client` (`rc_id`);
+  ADD CONSTRAINT `calender_ibfk_1` FOREIGN KEY (`rc_id`) REFERENCES `registered_client` (`rc_id`),
+  ADD CONSTRAINT `calender_ibfk_2` FOREIGN KEY (`fa_id`) REFERENCES `financial_advisor` (`fa_id`);
 
 --
 -- Constraints for table `registered_client`
 --
 ALTER TABLE `registered_client`
-  ADD CONSTRAINT `registered_client_ibfk_1` FOREIGN KEY (`rc_id`) REFERENCES `financial_advisor` (`fa_id`);
+  ADD CONSTRAINT `registered_client_ibfk_1` FOREIGN KEY (`fa_id`) REFERENCES `financial_advisor` (`fa_id`);
 
 --
 -- Constraints for table `stocks`
 --
 ALTER TABLE `stocks`
-  ADD CONSTRAINT `stocks_ibfk_1` FOREIGN KEY (`stock_id`) REFERENCES `financial_advisor` (`fa_id`);
+  ADD CONSTRAINT `stocks_ibfk_1` FOREIGN KEY (`fa_id`) REFERENCES `financial_advisor` (`fa_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
