@@ -1,0 +1,80 @@
+
+admin
+Column  	        Type 	          Null 	Default 	Comments
+admin_id 	        int(11) 	      No 		
+admin_name 	      varchar(35) 	  No 		
+admin_phone 	    int(11) 	      No 		
+admin_email 	    varchar(35) 	  No 		
+
+Indexes
+Keyname	    Type	  Unique	Packed	Column	    Cardinality	Collation	Null	Comment
+PRIMARY     BTREE	  Yes	    No	    admin_id	  3	          A	        No	
+admin_name	BTREE	  Yes	    No	    admin_name	3	          A	        No	
+
+
+
+calender
+Column 	            Type 	        Null 	Default 	Comments
+calender_id 	      int(11) 	    No 		
+meeting_title 	    varchar(25) 	No 		
+meeting_date 	      date 	        No 		
+meeting_time 	      time 	        No 		
+rc_id 	            int(11) 	    No 		
+fa_id 	            int(11) 	    No 		
+
+Indexes
+Keyname	    Type	    Unique	    Packed	    Column	      Cardinality	Collation	Null	Comment
+PRIMARY	    BTREE	    Yes	        No	        calender_id	  2	          A	        No	
+rc_id	      BTREE	    Yes       	No	        rc_id	        2	          A	        No	
+fa_id	      BTREE	    Yes	        No	        fa_id	        2	          A	        No	
+
+
+
+financial_advisor
+Column 	          Type 	        Null 	  Default 	  Comments
+fa_id 	          int(11) 	    No 		
+fa_name 	        varchar(45)   No 		
+fa_email 	        varchar(45) 	No 		
+fa_address 	      varchar(65) 	No 		
+fa_phone 	        int(11) 	    No 		
+fa_rating 	      int(11) 	    No 		
+years_experience 	int(11) 	    No 		
+certificate 	    varchar(65) 	No 		
+
+Indexes
+Keyname	  Type	  Unique	Packed	Column	Cardinality	Collation	Null	Comment
+PRIMARY	  BTREE	  Yes	    No	    fa_id	   3	        A	        No	
+
+
+
+registered_client
+Column 	      Type 	        Null 	Default 	Comments
+rc_id 	      int(11) 	    No 		
+rc_name 	    varchar(45) 	No 		
+rc_email 	    varchar(45) 	No 		
+rc_address 	  varchar(65) 	No 		
+rc_phone 	    int(11) 	    No 		
+fa_id 	      int(11) 	    No 		
+cash_balance 	int(11) 	    No 		
+
+Indexes
+Keyname	  Type	  Unique	Packed	Column	      Cardinality	  Collation	Null	Comment
+PRIMARY	  BTREE	  Yes	    No	    rc_id	        3	            A	        No	
+fa_id	    BTREE	  Yes	    No	    fa_id	        3	            A	        No	
+wallet_id	BTREE   Yes	    No	    cash_balance	3	            A	        No	
+
+
+
+stocks
+Column 	        Type 	        Null 	Default 	Comments
+stock_id 	      int(11) 	    No 		          
+stock_name 	    varchar(15) 	No 		          
+stock_category 	tinyint(1) 	  No 		          0-watchlist, 1-own
+stock_price 	  int(11) 	    No 		
+no_of_stocks 	  int(11) 	    No 		
+fa_id 	        int(11) 	    No 		
+
+Indexes
+Keyname	    Type	  Unique	Packed	Column	    Cardinality	Collation	Null	Comment
+PRIMARY	    BTREE	  Yes	    No	    stock_id	  3	          A	        No	
+fa_id	      BTREE	  Yes	    No	    fa_id	      3	          A	        No	
