@@ -1,0 +1,142 @@
+<html>
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Sidebar New Button</title>
+
+
+
+		<link href="dashboard-stylesheet.css" rel="stylesheet">
+
+
+		<!-- bootstrap src: getbootstrap.com -->
+		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+		<!-- fullcalendar scripts src: http://fullcalendar.io/ -->
+		<link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
+		<!-- <link href='fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' /> -->
+		<script src='fullcalendar/lib/jquery.min.js'></script>
+		<script src='fullcalendar/lib/moment.min.js'></script>
+		<script src='fullcalendar/fullcalendar.js'></script>
+
+
+	</head>
+
+
+	<body>
+
+		<!-- Start of whole Modal -->
+		<div id="bootstrap-modal">
+			<!-- Button trigger for modal -->
+			<button type="button" id="new" class="btn btn-default" data-toggle="modal" data-target="#NewModal">
+  				<h1>
+  					<span class="glyphicon glyphicon-plus"></span>
+  				</h1>
+			</button>
+
+			<!-- Modal -->
+			<div class="modal fade" id="NewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  				<div class="modal-dialog">
+    				<div class="modal-content">
+      					<div class="modal-header">
+      						<!-- close button -->
+        					<button type="button" class="close" data-dismiss="modal">
+        						<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+        					</button>
+    						<div class="form-group">
+	        					<h3 class="modal-title" id="myModalLabel">Create new: </h3>
+
+	        					<div class="dropdown">
+						  			<button class="btn btn-default btn-lg dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+						  				Client &nbsp;&nbsp;
+						    			<span class="glyphicon glyphicon-triangle-bottom pull-right"></span>
+						  			</button>
+						  			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+									    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Appointment</a></li>
+									</ul>
+								</div>
+							</div>
+      					</div>
+
+	      				<!-- Modal body start -->
+					    <div class="modal-body">
+					    	<form>
+			  					<div class="container">
+							    	<div class="row">
+							        	<div class="col-sm-4">
+							        		<label for="input-name">Name: </label>
+								    		<br><br>
+									    	<input type="text" id="input-Fname" placeholder="First name" class="input-group .inputter">
+									    	<br>
+									    	<input type="text" id="input-Lname" placeholder="Last Name" class="input-group .inputter" >
+							        	</div>
+
+							        	<div class="col-sm-4" style="padding:0px">
+								            <div class="short-div">
+								            	<label for="input-dob">Date of Birth: </label>
+									    		<br><br>
+												<div id="date1" class="datefield">
+													<input id="day" type="tel" maxlength="2" placeholder="DD"/> /              
+													<input id="month" type="tel" maxlength="2" placeholder="MM"/>/
+													<input id="year" type="tel" maxlength="4" placeholder="YYYY"/>
+												</div>
+							            	</div>
+							            	<br>
+							            	<div class="short-div">
+							            		<label for="input-insno"> National Insurance Number: </label>
+								    			<br>
+								    			<input type="text" id="input-Fname" placeholder="Insurance Number" class="input-group .inputter">
+							            	</div>
+							    		</div>
+									</div>
+
+									<div class="row"> <!-- leaving empty space between sections -->
+										<div class="col-sm-8">
+											<br><br>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-sm-4">
+											<label for="input-contact"> Contact details:</label>
+											<br><br>
+											<input type="text" id="input-email" placeholder="email" class="input-group .inputter">
+									    	<br>
+									    	<input type="tel" id="input-phone" placeholder="telephone" class="input-group .inputter">
+										</div>
+										<div class="col-sm-4">
+											<label for="input-address"> Address:</label>
+											<br><br>
+											<textarea class=".inputter" rows="7" id="address"></textarea>
+										</div>
+									</div>
+								</div>
+							</form>
+					    </div>
+					    <!-- Modal body end -->
+
+	      				<div class="modal-footer">
+	        				<button type="submit" class="btn btn-primary">Submit</button>
+	      				</div>
+    				</div>
+  				</div>
+			</div>
+		</div>
+		<!-- End of whole Modal -->
+
+
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+	    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+	    <!-- Include all compiled plugins (below), or include individual files as needed -->
+	    <script src="bootstrap/js/bootstrap.min.js"></script>
+	</body>
+</html>
