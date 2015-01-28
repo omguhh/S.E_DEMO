@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8' />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Dashboard</title>
+
+
+
+		<!-- bootstrap stylesheets src: getbootstrap.com -->
+		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+		<link href="dashboard-stylesheet.css" rel="stylesheet">
+		<!-- <link href="calendar-stylesheet.css" rel="stylesheet"> -->
+
+		<!-- fullcalendar scripts src: fullcalendar.io -->
+		<link href='fullcalendar/fullcalendar.css' rel='stylesheet' />
+		<!-- <link href='../fullcalendar.print.css' rel='stylesheet' media='print' /> -->
+		<script src='fullcalendar/lib/moment.min.js'></script>
+		<script src='fullcalendar/lib/jquery.min.js'></script>
+		<script src='fullcalendar/fullcalendar.min.js'></script>
+
+		<!-- fullcalendar customisation -->
+		<script>
+				$(document).ready(function()
+				 {
+					$('#calendar').fullCalendar(
+					 {
+						aspectRatio: 1.1,
+						handleWindowResize: false,
+						fixedWeekCount: false,
+						editable: true,
+						eventLimit: true,
+						header: 
+						 {
+							left: 'prev',
+							center: 'title',
+							right: 'next'
+						 },
+						firstDay: 0,
+						theme: false,
+						monthNames: ['JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER'],
+						dayNamesShort: ['S','M','T','W','T','F','S'],
+					 });
+				 });
+			</script>
+	</head>
+
+	<body>
+
+		<!-- CALENDAR && WEEKLY EVENTS CONTAINER START -->
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-4" id="fcal">
+					<div id='calendar'></div>
+				</div>
+
+				<div class="col-xs-5" id="weekly-events">
+					<!-- weekly events such as meetings etc. -->
+					<h3>Today's Meetings</h3>
+					<div class="events">
+						<div class="left-coloured-cm">
+							<div class="bs-callout bs-callout-cmeeting"> 
+								<p class="cmeetings"> Meeting with Bob Sinclair <br>
+								<span class="time"> At 03:30PM </span></p>
+							</div>
+						</div>
+						<div class="bs-callout bs-callout-smeeting"> 
+							<p class="stmeetings"> Staff Review Meeting <br>
+							<span class="time"> At 04:20PM </span></p>
+						</div>
+						<div class="bs-callout bs-callout-cmeeting"> 
+							<p class="cmeetings"> Meeting with Jeniffer Lopez <br>
+							<span class="time"> At 05:30PM </span></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- STOCK PERFORMANCE CONTAINER START -->
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-9" id="bstocks">
+					<!-- 3 bookmarked stocks -->
+					<div class="col-xs-3">
+						<label class="stck stck-up">
+							<h1> <span class="glyphicon glyphicon-arrow-up"></span>  +0.06%</h1>
+							<p class="pull-right">DIJA</p>
+						</label>
+					</div>
+					<div class="col-xs-3">
+						<label class="stck stck-dwn">
+							<h1> <span class="glyphicon glyphicon-arrow-down"></span>  -1.50%</h1>
+							<p class="pull-right">GOOG</p>
+						</label>
+					</div>
+					<div class="col-xs-3">
+						<label class="stck stck-up">
+							<h1> <span class="glyphicon glyphicon-arrow-up"></span>  +2.90%</h1>
+							<p class="pull-right">NKE</p>
+						</label>
+					</div>
+					<div class="col-xs-3">
+						<label class="stck stck-up">
+							<h1> <span class="glyphicon glyphicon-arrow-up"></span>  +5.00%</h1>
+							<p class="pull-right">NKE</p>
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- STOCK PERFORMANCE CONTAINER END -->
+
+		
+		<!-- MARKET WATCH CONTAINER START -->
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-7" id="rssfeeder">
+					<!-- rss feeds of stocks/news from RSSinclude -->
+					<div id="news-roller">
+						<div id="rssincl-box-container-960876"></div>
+						<script type="text/javascript">
+							(function() 
+							 {
+								var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+								s.src = 'http://output35.rssinclude.com/output?type=asyncjs&id=960876&hash=b57185d9fa54a12d13abf207a122e17f';
+								document.getElementsByTagName('head')[0].appendChild(s);
+							 }
+							)();
+						</script>
+
+						<div id="rssincl-box-container-960893"></div>
+						<script type="text/javascript">
+							(function() 
+							 {
+							 	var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+							 	s.src = 'http://output85.rssinclude.com/output?type=asyncjs&id=960893&hash=a6c63382400612fa9ef896c8689f4097';
+							 	document.getElementsByTagName('head')[0].appendChild(s);
+							 }
+							)();
+						</script>
+
+						<div id="rssincl-box-container-960938"></div>
+						<script type="text/javascript">
+							(function()
+							 {
+							 	var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+							 	s.src = 'http://output76.rssinclude.com/output?type=asyncjs&id=960938&hash=3da66ef863921f81f59bd7696ec4d69c';
+							 	document.getElementsByTagName('head')[0].appendChild(s);
+							 }
+							)();
+						</script>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- MARKET WATCH CONTAINER END -->
+	</body>
+</html>
