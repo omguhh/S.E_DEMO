@@ -21,8 +21,8 @@ img {
 #wrapper {
     margin : auto;
     width : auto;
-    height: 100%;
-    background : #e6e6fa;
+    height: 1150px;
+    background : #f1f1f1;
     padding : 2%;
 }
 header {
@@ -32,7 +32,6 @@ header {
 
 nav{
     width: 100%;
-    background : #e6e6fa;
     padding : 0;
     margin : 0 0;
 }
@@ -61,8 +60,8 @@ nav a:hover, nav li.active a {
 #nav2
 {
     text-align: left;
-    background-color : #EEEEEE;
-    border: 25px #000000;
+    background-color :#FFFFFF;
+    border: 25px #b3b3b3;
     margin: 25px;
     float: left;
     width : 85%;
@@ -70,11 +69,16 @@ nav a:hover, nav li.active a {
     border-radius :0px;
     margin-left: 1%;
     font-size: 25px;
-margin-bottom: -15px;
+    margin-bottom: -15px;
 
 
 }
+#nav2 p {
 
+    color: #5F5F5F;
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: -1px;
+}
 #nav3{
     text-align: right;
     background-color : #EEEEEE;
@@ -89,7 +93,6 @@ margin-bottom: -15px;
     padding: 35px;
     margin: 25px;
     float: left;
-    margin-left: 980px;
     color: #EEEEEE;
     font-size: 20px;
 }
@@ -101,8 +104,6 @@ margin-bottom: -15px;
     padding: 35px;
     margin: 25px;
     float: left;
-    margin-left: 500px;
-    margin-top: -150px;
     color: #EEEEEE;
     font-size: 20px;
 }
@@ -114,15 +115,13 @@ margin-bottom: -15px;
     padding: 35px;
     margin: 25px;
     float: left;
-    margin-left: -806px;
-    margin-top: -150px;
     color: #EEEEEE;
     font-size: 20px;
 
 }
 #nav7{
     text-align: left;
-    background-color : #EEEEEE;
+    background-color : #ffffff;
     border: 25px #000000;
     margin: 25px;
     float: left;
@@ -147,9 +146,8 @@ nav > ul > li
 
 
 .left-col {
-    background : #EEEEEE;
-    max-height: 100%;
-    height: 100%;
+    background : #FFFFFF;
+    height: 1150px;
     float : left;
     margin-top: 1.5%;
     margin-left: -2%;

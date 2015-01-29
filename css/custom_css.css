@@ -237,3 +237,113 @@ a:focus {
 
 
 
+/*Login Box CSS*/
+
+/* Popup Styles*/
+.popupHeader  {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    text-transform:  uppercase;
+}
+
+.popupHeader  {
+    background: #F4F4F2;
+    position: relative;
+    padding: 10px 20px;
+    border-bottom: 1px solid #DDD;
+}
+
+.popupHeader .modal_close  {
+    position:  absolute;
+    right:  0;
+    top: 0;
+    padding: 10px 15px;
+    background: #E4E4E2;
+    cursor:  pointer;
+    color: #aaa;
+    font-size: 16px;
+}
+
+.popupBody  {
+    padding: 20px;
+}
+
+/* Overlay when Modal is open */
+#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+}
+
+/* Modal box or Popup box */
+.popupContainer{
+    position:absolute;
+    width:330px;
+    height: auto;
+    left:45%;
+    top:80px;
+    background: #FFF;
+}
+
+/* User Login Form */
+.user_login  {
+    display:  none;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+}
+
+.user_login label  {
+    font-family: 'Raleway', sans-serif;
+    display:  block;
+    margin-bottom: 5px;
+}
+
+.user_login input[type="text"],  .user_login input[type="email"],  .user_login input[type="password"]  {
+    font-family: 'Raleway', sans-serif;
+    display:  block;
+    width: 90%;
+    padding:  10px;
+    border: 1px solid #DDD;
+    color: #666;
+}
+
+.forgot_password  {
+    font-family: 'Raleway', sans-serif;
+    display: block;
+    margin:  20px 0 10px;
+    clear:  both;
+    overflow:  hidden;
+    text-decoration:  none;
+    color: #212121;
+}
+
+
+.btn_red  {
+    background: #3948da;
+    color:  #FFF;
+}
+
+.btn_red:hover {
+    background: #303f9f;
+    color: #FFF;
+}
+
+footer {
+    background-color: #263238;
+    padding: 20px 0;
+}
+
+footer p {
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    margin:15px 115px 0;
+    font-weight: 400;
+    text-align: left;
+    font-size: 85%;
+}

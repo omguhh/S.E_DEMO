@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Grayscale - Start Bootstrap Theme</title>
+    <title>Pi</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -19,6 +19,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"> </script>
     <script src="http://code.highcharts.com/stock/highstock.js"></script>
     <script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
 
 
     <?php
@@ -79,7 +80,7 @@
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand page-scroll" href="#page-top">
-                <span class="light">Pi</span>
+                <span class="light" style="font-weight: 700;font-size: 25px;">Pi</span>
             </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -93,7 +94,7 @@
                     <a class="page-scroll" href="homepage.html">About</a>
                 </li>
                 <li>
-                    <a class="page-scroll " href="#download">Market Insights</a>
+                    <a class="page-scroll " href="market-insights.php">Market Insights</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#contact">Find your Advisor</a>
@@ -101,14 +102,38 @@
 
 
             </ul>
-            <a class="login" href="#page-top"> <span class="light">Login</span>
-            </a>
+            <a class="login light" id="modal_trigger" href="#modal"> Login    </a>
         </div>
         <!-- /.navbar-collapse -->
 
     </div>
     <!-- /.container -->
 </nav>
+<!--Login Box Stuff-->
+
+<div id="modal" class="popupContainer" style="display:none;">
+    <header class="popupHeader">
+        <span class="header_title">Login</span>
+    </header>
+
+    <section class="popupBody">
+        <div class="user_login">
+            <form action="checklogin.php" method="post">
+                <label>Email</label> <input name="username" type="text" id="username"><br>
+                <label>Password</label> <input name="password" type="password"><br>
+
+                <div class="action_btns">
+
+                    <div class="one_half last">
+                        <input type="submit" class="btn btn_red" name="Submit" value="Login">
+                    </div>
+                </div>
+            </form>
+
+            <a class="forgot_password" href="#">Forgot password?</a>
+        </div>
+    </section>
+</div>
 
 <!--SHOOT ME IN THE FACE I WANT TO SLEEP-->
 <header class="intro">
@@ -163,7 +188,7 @@
                         </div>
 
                         <div class="col-md-3" style="background-color: #303f9f;padding: 10px;">
-                            <form id="searchthis" action="/search" style="display:inline;" method="get">
+                            <form id="searchthis"  style="display:inline;" method="post" action="retrieve_deets.php">
                                 <div class="form-group">
                                     <div class="input-group">
                                         <input autocomplete="on" class="form-control" name="q" title="search"
@@ -189,6 +214,12 @@
 
                 </div></div></div> </div>
 </header>
+
+<script type="text/javascript">
+    $("#modal_trigger").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
+    $(function(){          $(".user_login").show();      })
+
+</script>
 
 
 </body>
